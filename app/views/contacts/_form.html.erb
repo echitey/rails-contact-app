@@ -1,7 +1,7 @@
 <%= form_for @contact do |f|%>
 
   <% if @contact.errors.any? %>
-      <h2><%= pluralize(@contact.errors.count, " error") %> prevented contact from saving: </h2>
+      <h2><%= pluralize(@contact.errors.count, " error") %> found: </h2>
       <ul>
         <% @contact.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
