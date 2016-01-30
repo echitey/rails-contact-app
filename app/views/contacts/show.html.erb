@@ -1,0 +1,10 @@
+<h2>Contact Id: <%= @contact.id%>
+<h2>Full Name: <%= @contact.firstname%> <%= @contact.lastname%></h2>
+<h3>Number: <%= @contact.phone%></h3>
+<h3>Email: <%= @contact.email%></h3>
+<h3>Created at: <%= @contact.created_at%></h3>
+<h3>Updated at: <%= @contact.updated_at.strftime("%B %d, %Y")%></h3>
+
+<%= link_to 'My Contacts', contacts_path%>
+<%= link_to 'Edit', edit_contact_path(@contact)%>
+<%= link_to 'Delete', contact_path , method: :delete, data:{confirm: "Are you sure?"}%>

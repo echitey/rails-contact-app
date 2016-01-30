@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :find_contact, only: [:edit,:show,:update,:delete]
+  before_action :find_contact, only: [:edit,:show,:update,:destroy]
 
   def index
     #TO SERVE THE CONTACTS LIST
@@ -52,6 +52,8 @@ class ContactsController < ApplicationController
 
   def find_contact
     @contact = Contact.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path
   end
 
 end
