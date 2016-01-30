@@ -1,4 +1,14 @@
 <%= form_for @contact do |f|%>
+
+  <% if @contact.errors.any? %>
+      <h2><%= pluralize(@contact.errors.count, " error") %> prevented contact from saving: </h2>
+      <ul>
+        <% @contact.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
   <%= f.label :firstname%>
   <%= f.text_field :firstname%></br>
 
