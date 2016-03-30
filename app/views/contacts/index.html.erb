@@ -1,14 +1,21 @@
-<h1>My Contacts</h1>
-<%if @contacts.empty? %>
-  No contacts found
-<% else %>
-  <% @contacts.each do |contact|%>
-    <h2>Contact: id <%= contact.id%>
-    <h2>Full Name: <%= contact.firstname%> <%= contact.lastname%></h2>
-    <h3>Number: <%= contact.phone%></h3>
-    <h3>Email: <%= contact.email%></h3>
-    <%= link_to "Show Contact", contact_path(contact)%>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <h1>My Contacts</h1>
+      <%if @contacts.empty? %>
+        No contacts found
+      <% else %>
+        <% @contacts.each do |contact|%>
+          <h2>Contact: id <%= contact.id%>
+          <h2>Full Name: <%= contact.firstname%> <%= contact.lastname%></h2>
+          <h3>Number: <%= contact.phone%></h3>
+          <h3>Email: <%= contact.email%></h3>
+          <%= link_to "Show Contact", contact_path(contact)%>
+        <% end %>
+      <% end %>
 
-<%= link_to "Add New", new_contact_path%>
+      <%= link_to "Add New", new_contact_path%>
+
+    </div>
+  </div>
+</div>

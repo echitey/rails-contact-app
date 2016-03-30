@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+          <%= link_to "Contacts App", contacts_path, class: "navbar-brand"%>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "My Contacts", contacts_path%></li>
+            <li><%= link_to "New Contact", new_contact_path%></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <%= yield %>
 </body>
 </html>
