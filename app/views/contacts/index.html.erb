@@ -1,17 +1,33 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-      <h1>My Contacts</h1>
+    <div class="col-md-12">
+      <h2 class="text-center">My Contacts</h2>
       <%if @contacts.empty? %>
-        No contacts found
+        <h2 class="text-center">No contacts found</h2>
       <% else %>
-        <% @contacts.each do |contact|%>
-          <h2>Contact: id <%= contact.id%>
-          <h2>Full Name: <%= contact.firstname%> <%= contact.lastname%></h2>
-          <h3>Number: <%= contact.phone%></h3>
-          <h3>Email: <%= contact.email%></h3>
-          <%= link_to "Show Contact", contact_path(contact)%>
-        <% end %>
+        <table class="table table-striped">
+          <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Action</th>
+          </tr>
+          <% @contacts.each do |contact|%>
+            <tr>
+              <td><%= contact.id%></td>
+              <td><%= contact.firstname%> <%= contact.lastname%></td>
+              <td><%= contact.email%></td>
+              <td><%= contact.phone%></td>
+              <td>
+                <%= link_to contact_path(contact) do%>
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                <% end %>
+
+              </td>
+            </tr>
+          <% end %>
+        </table>
       <% end %>
 
       <%= link_to "Add New", new_contact_path%>
