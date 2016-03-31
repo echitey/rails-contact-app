@@ -1,10 +1,24 @@
-<h2>Contact Id: <%= @contact.id%>
-<h2>Full Name: <%= @contact.firstname%> <%= @contact.lastname%></h2>
-<h3>Number: <%= @contact.phone%></h3>
-<h3>Email: <%= @contact.email%></h3>
-<h3>Created at: <%= @contact.created_at%></h3>
-<h3>Updated at: <%= @contact.updated_at.strftime("%B %d, %Y")%></h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="well">
+        <h4>Contact Id: <%= @contact.id%></h4>
+        <h4>Full Name: <%= @contact.firstname%> <%= @contact.lastname%></h4>
+        <h4>Number: <%= @contact.phone%></h4>
+        <h4>Email: <%= @contact.email%></h4>
+        <h4>Created at: <%= @contact.created_at%></h4>
+        <h4>Updated at: <%= @contact.updated_at.strftime("%B %d, %Y")%></h4>
 
-<%= link_to 'My Contacts', contacts_path%>
-<%= link_to 'Edit', edit_contact_path(@contact)%>
-<%= link_to 'Delete', contact_path , method: :delete, data:{confirm: "Are you sure?"}%>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-2">
+             <%= link_to 'Edit', edit_contact_path(@contact), class: "btn btn-default btn-block" %>
+          </div>
+          <div class="col-md-4">
+            <%= link_to 'Excluir', @contact, class: "btn btn-danger btn-block",
+                                      method: :delete, data: {confirm: "Are you sure?"} %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
