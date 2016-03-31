@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2 class="text-center">My Contacts</h2>
+      <h2 class="text-center">My contacts </h2>
       <%if @contacts.empty? %>
         <h2 class="text-center">No contacts found</h2>
       <% else %>
@@ -21,7 +21,8 @@
               <td><%= contact.phone%></td>
               <td>
                 <%= link_to contact_path(contact) do%>
-                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 <% end %>
 
               </td>
@@ -29,9 +30,6 @@
           <% end %>
         </table>
       <% end %>
-
-      <%= link_to "Add New", new_contact_path%>
-
     </div>
   </div>
 </div>
