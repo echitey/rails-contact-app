@@ -1,25 +1,39 @@
-<%= form_for @contact do |f|%>
-
-  <% if @contact.errors.any? %>
-      <h2><%= pluralize(@contact.errors.count, " error") %> found: </h2>
-      <ul>
-        <% @contact.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="well">
+        <% if @contact.errors.any? %>
+            <h2><%= pluralize(@contact.errors.count, " error") %> found: </h2>
+            <ul>
+              <% @contact.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
         <% end %>
-      </ul>
-  <% end %>
+        <%= form_for @contact do |f|%>
+            <div class="form-group">
+              <%= f.label :firstname%>
+              <%= f.text_field :firstname, class: "form-control"%>
+            </div>
 
-  <%= f.label :firstname%>
-  <%= f.text_field :firstname%></br>
+            <div class="form-group">
+              <%= f.label :lastname%>
+              <%= f.text_field :lastname, class: "form-control"%>
+            </div>
 
-  <%= f.label :lastname%>
-  <%= f.text_field :lastname%></br>
+            <div class="form-group">
+              <%= f.label :phone%>
+              <%= f.text_field :phone, class: "form-control"%>
+            </div>
 
-  <%= f.label :phone%>
-  <%= f.text_field :phone%></br>
-
-  <%= f.label :email%>
-  <%= f.email_field :email%></br>
-
-  <%= f.submit%>
-<% end %>
+            <div class="form-group">
+              <%= f.label :email%>
+              <%= f.email_field :email, class: "form-control"%>
+            </div>
+            <%= f.submit class: "btn btn-default"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
